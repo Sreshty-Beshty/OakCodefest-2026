@@ -47,10 +47,10 @@ function updateCountdown() {
     const remaining = eventDate - now;
 
     if (remaining < 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        const countdownSection = document.querySelector('.countdown-section');
+        if (countdownSection) {
+            countdownSection.style.display = 'none';
+        }
         return;
     }
 
@@ -71,16 +71,29 @@ setInterval(updateCountdown, 1000);
 
 const terminal = document.getElementById('terminalText');
 if (terminal) {
-    const content = terminal.textContent;
+    let content = terminal.textContent;
+    
+    // Check if event has passed
+    const now = Date.now();
+    if (eventDate - now < 0) {
+        content = content.replace('calculation complete', 'coming soon...');
+    }
+
     terminal.textContent = '';
 
     let index = 0;
-    const speed = 15;
 
     function type() {
         if (index < content.length) {
-            terminal.textContent += content.charAt(index);
+            const char = content.charAt(index);
+            terminal.textContent += char;
             index++;
+            
+            let speed = Math.floor(Math.random() * 20) + 10; // Random speed between 10ms and 30ms
+            if (char === '.') {
+                speed += 300; // Pause at periods
+            }
+            
             setTimeout(type, speed);
         }
     }

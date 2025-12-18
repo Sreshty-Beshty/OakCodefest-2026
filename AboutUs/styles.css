@@ -178,7 +178,7 @@
     50% { opacity: 0; }
 }
 
-.reviews-section {
+.gallery-section {
     background-color: var(--bg-color);
     padding: 80px 20px;
     display: flex;
@@ -187,14 +187,14 @@
     gap: 40px;
 }
 
-.reviews-section h2 {
+.gallery-section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
     width: 100%;
     color: var(--sec-accent-color);
 }
 
-.reviews-main-content {
+.gallery-main-content {
     width: 100%;
     text-align: center;
 }
@@ -214,7 +214,7 @@
     padding: 0 20px;
 }
 
-.review-card {
+.image-card {
     flex: 0 0 auto;
     background-color: var(--bg-color);
     border: 4px solid var(--accent-color);
@@ -224,14 +224,14 @@
     align-items: center;
 }
 
-.review-card img {
+.image-card img {
     display: block;
     max-width: 100%;
     height: auto;
     border-radius: 30px;
 }
 
-.lazy-scrolling-container.left .review-card {
+.lazy-scrolling-container.left .image-card {
     border-color: var(--sec-accent-color);
 }
 
@@ -285,7 +285,7 @@ section {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    color: var(--text-color);
+    color: var(--sec-accent-color);
 }
 
 .hero-content p {

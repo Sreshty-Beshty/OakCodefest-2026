@@ -1,4 +1,2 @@
 **/.DS_Store
 .netlify
-node_modules
-package-lock.json

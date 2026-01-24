@@ -38,7 +38,7 @@ export const handler = async (event) => {
 
     // Fetch user from Supabase
     const { data: user, error } = await supabase
-      .from("users")
+      .from("teams")
       .select("team_id, hashed_password, Salt")
       .eq("team_id", username)
       .single();

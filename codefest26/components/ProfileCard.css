@@ -251,6 +251,7 @@
 
 .pc-avatar-content .avatar {
   width: 100%;
+  max-width: none;
   position: absolute;
   left: 50%;
   transform-origin: 50% 100%;
@@ -558,4 +559,8 @@
     font-size: 9px;
     border-radius: 50px;
   }
+}
+
+.pc-card-small .pc-card {
+  max-height: 300px;
 }

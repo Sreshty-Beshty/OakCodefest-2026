@@ -54,22 +54,6 @@
     </div>
     </section>
 
-    <section class="our-team-section">
-        <h2 class="section-title">Our Team</h2>
-        <p class="mission-and-vision our-team-description">
-            The driving force behind Oakridge Codefest 2026
-        </p>
-        <div class="team-iframe-container">
-            <iframe 
-                src="http://localhost:3000/profile" 
-                frameborder="0" 
-                scrolling="no" 
-                allowtransparency="true"
-                class="team-iframe">
-            </iframe>
-        </div>
-    </section>
-
     <div class="borderline"></div>
 
     <section class="what-is-section">
@@ -204,8 +188,8 @@ Yes. Industry professionals and experienced developers will be available through
 <span style="color: var(--accent-color);">12. Is this an online or offline event?</span>
 Oakridge Codefest 2026 is conducted offline at Oakridge International School, Bengaluru.
 
-<span style="color: var(--accent-color);">13. What happens if I don’t finish my project?</span>
-That’s normal. Judges evaluate progress, intent, and execution — not just a “finished” product.
+<span style="color: var(--accent-color);">13. What happens if I don't finish my project?</span>
+That's normal. Judges evaluate progress, intent, and execution — not just a "finished" product.
 
 <span style="color: var(--accent-color);">14. Does a teacher/supervisor need to accompany us to the event?</span>
 All external teams partaking in the Junior category(Grades 6-8) will need to be accompanied by a supervisor. Note that a supervisor is not required 
@@ -260,8 +244,7 @@ Yes. A detailed event schedule—including check-ins, audits, meals, mentor sess
       
         </div>
       </section>
-      
-    <!-- TODO: Pratiyush insert the sponsors and team members here-->
+
 
     <section class="schedule-section" id="schedule">
         <h2 class="schedule-title">Event Schedule</h2>
@@ -293,7 +276,35 @@ Yes. A detailed event schedule—including check-ins, audits, meals, mentor sess
         </div>
     </section>
 
+    <section class="our-team-section">
+        <h2 class="section-title">Our Team</h2>
+        <p class="mission-and-vision our-team-description">
+            The driving force behind Oakridge Codefest 2026 is the codefest OC. The OC has numerous memebrs across multiple fields to ensure the smooth running of the event.
+        </p>
+        <div class="team-iframe-container">
+            <iframe 
+                id="teamIframe"
+                src="https://rad-pastelito-322fda.netlify.app/profile" 
+                frameborder="0" 
+                scrolling="no" 
+                class="team-iframe">
+            </iframe>
+        </div>
+    </section>
 
+    <script>
+        window.addEventListener('message', function(event) {
+            
+            if (event.data.type === 'iframeHeight') {
+                const iframe = document.getElementById('teamIframe');
+                if (iframe) {
+                    iframe.style.height = event.data.height + 'px';
+                }
+            }
+        });
+    </script>
+
+    <div class="borderline"></div>
 
     <!-- CONTACT SECTION -->
 

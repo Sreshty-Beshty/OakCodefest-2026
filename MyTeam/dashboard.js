@@ -64,10 +64,17 @@ function renderTeam(t) {
 function renderProject(team) {
   const el = document.getElementById("project-info");
 
-  if (!team.project_title || !team.project_description) {
+  const hasTitle =
+    team.project_title && team.project_title.trim() !== "";
+  const hasDesc =
+    team.project_description && team.project_description.trim() !== "";
+
+  if (!hasTitle || !hasDesc) {
     el.innerHTML = `
       <div class="empty-state">
-        <button onclick="showProjectForm()">Add project details</button>
+        <button onclick="showProjectForm()">
+          Add project details
+        </button>
       </div>
     `;
     return;
@@ -81,10 +88,24 @@ function renderProject(team) {
   `;
 }
 
-function renderGitHub(g) {
-  document.getElementById("github-info").innerHTML = g
-    ? `<a class="github-btn" href="${g.repo_url}" target="_blank">Open Repository</a>`
-    : `<div class="empty-state">GitHub not linked</div>`;
+
+function renderGitHub(team) {
+  const el = document.getElementById("github-info");
+
+  if (!team.repo_url || team.repo_url.trim() === "") {
+    el.innerHTML = `
+      <div class="empty-state">
+        <button onclick="showGitHubForm()">Add GitHub link</button>
+      </div>
+    `;
+    return;
+  }
+
+  el.innerHTML = `
+    <a class="github-btn" href="${team.repo_url}" target="_blank">
+      Open Repository
+    </a>
+  `;
 }
 
 function renderUpcoming() {
@@ -116,7 +137,7 @@ function renderLeaderboard(rows) {
     .map(r => ({
       team_id: r.team_id,
       team_name: r.team_name,
-      points: Number(r.Points) || 0
+      points: Number(r.points) || 0
     }))
     .sort((a, b) => b.points - a.points)
     .slice(0, 5);
@@ -139,7 +160,7 @@ function renderFeedback(rows) {
   }
 
   c.innerHTML = rows.map((f, idx) => {
-    const priority = parseInt(String(f.Priority).trim(), 10);
+    const priority = parseInt(String(f.priority).trim(), 10);
     const resolved = f.resolved === true || f.resolved === "TRUE";
 
     let priorityClass = "";
@@ -148,7 +169,7 @@ function renderFeedback(rows) {
     else if (priority === 2) priorityClass = "priority-yellow";
     else if (priority === 3) priorityClass = "priority-blue";
     else {
-      console.warn("Invalid priority value:", f.Priority);
+      console.warn("Invalid priority value:", f.priority);
       priorityClass = "priority-red";
     }
 
@@ -208,6 +229,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderTeam(team);
     renderProject(team);
+    renderGitHub(team);
     renderFeedback(feedbackData);
 
   } catch (err) {

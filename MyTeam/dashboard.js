@@ -113,9 +113,12 @@ function renderGitHub(team) {
     `;
     return;
   }
-
+  let repo_url = team.repo_url;
+  if (!repo_url.includes("https://")) {
+    repo_url = "https://" + repo_url;
+  }
   el.innerHTML = `
-    <a class="github-btn" href="${team.repo_url}" target="_blank">
+    <a class="github-btn" href="${repo_url}" target="_blank">
       Open Repository
     </a>
   `;

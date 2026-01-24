@@ -250,3 +250,25 @@ body {
 .feedback-card strong {
   color: currentColor;
 }
+
+.feedback-card.priority-red {
+  background: rgba(242, 70, 79, 0.08);
+  border-color: rgba(242, 70, 79, 0.35);
+  color: rgb(242, 70, 79);
+}
+
+.feedback-card.priority-yellow {
+  background: rgba(255, 200, 50, 0.08);
+  border-color: rgba(255, 200, 50, 0.35);
+  color: rgb(255, 200, 50);
+}
+
+.feedback-card.priority-blue {
+  background: rgba(53, 208, 227, 0.08);
+  border-color: rgba(53, 208, 227, 0.35);
+  color: rgb(53, 208, 227);
+}
+
+.feedback-card.done {
+  opacity: 0.6;
+}

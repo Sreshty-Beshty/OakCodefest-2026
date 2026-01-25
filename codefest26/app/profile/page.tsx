@@ -578,11 +578,11 @@ export default function ProfilePage() {
         behindGlowColor="hsla(51, 80%, 55%, 0.45)"
         behindGlowSize={undefined}
         miniAvatarUrl={undefined}
-        avatarStyle={{ top: 'unset', bottom: '0px', transform: 'translateX(-60%)', width: '110%' }}
+        avatarStyle={{ top: 'unset', bottom: '0px', transform: 'translateX(-47%)', width: '110%' }}
       />
 
       <ProfileCard
-        name="Mokshatha pokuri"
+        name="Mokshatha Pokuri"
         title="Marketing Team"
         handle="mokshap"
         status="Online"

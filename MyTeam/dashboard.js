@@ -102,32 +102,43 @@ function renderProject(team) {
 function renderGitHub(team) {
   const el = document.getElementById("github-info");
 
-  if (!team.repo_url || team.repo_url.trim() === "") {
+  const raw = team.repo_url?.trim();
+
+  if (!raw) {
     el.innerHTML = `
       <div class="form github-form">
         <input id="repo" placeholder="GitHub repository URL" />
-        
         <button class="btn primary full" onclick="saveGitHub()">Save</button>
-        <button class="btn secondary full" onclick="location.reload()">Cancel</button>
       </div>
     `;
-
-
-
     return;
   }
 
-  let repo_url = team.repo_url;
-  if (!repo_url.startsWith("https://")) repo_url = "https://" + repo_url;
+  let repo_url = raw.startsWith("https://") ? raw : "https://" + raw;
+
+  const cleanName = repo_url
+    .replace("https://", "")
+    .replace("github.com/", "");
 
   el.innerHTML = `
-    <div class="github-centered">
-      <a class="github-btn" href="${repo_url}" target="_blank">
-        Open Repository →
-      </a>
+    <div class="github-card">
+      <div class="github-meta">
+        <span class="repo-label">Repository</span>
+        <span class="repo-name">${cleanName}</span>
+      </div>
+
+      <div class="github-actions">
+        <a class="btn secondary" href="${repo_url}" target="_blank">
+          Open
+        </a>
+        <button class="btn primary" onclick="showGitHubForm()">
+          Edit
+        </button>
+      </div>
     </div>
   `;
 }
+
 
 
 function renderUpcoming() {
@@ -277,12 +288,18 @@ function showGitHubForm() {
   const el = document.getElementById("github-info");
 
   el.innerHTML = `
-    <div class="form">
-      <input id="repo" placeholder="GitHub repo URL" />
-      <button onclick="saveGitHub()">Save</button>
+    <div class="github-card">
+      <div class="form">
+        <input id="repo" placeholder="GitHub repository URL" />
+        <div class="github-actions">
+          <button class="btn primary" onclick="saveGitHub()">Save</button>
+          <button class="btn secondary" onclick="location.reload()">Cancel</button>
+        </div>
+      </div>
     </div>
   `;
 }
+
 
 async function saveGitHub() {
   const repo_url = document.getElementById("repo").value.trim();

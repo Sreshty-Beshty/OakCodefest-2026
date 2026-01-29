@@ -1,11 +1,4 @@
-:root {
-  --bg-color: rgb(17, 17, 17);
-  --accent-color: rgb(255, 231, 51);
-  --sec-accent-color: rgb(53, 208, 227);
-  --tert-accent-color: rgb(242, 70, 79);
-  --text-color: rgb(247, 242, 236);
-  --muted-text: rgba(247, 242, 236, 0.55);
-}
+@import url(..\Common\styles.css);
 
 body {
   margin: 0;
@@ -166,7 +159,7 @@ body {
 }
 
 .info-block { display:flex; flex-direction:column; gap:8px; }
-.info-title { font-size: 22px; font-weight: 700; }
+.info-title { font-size: 30px; font-weight: 700; }
 .info-sub { color: var(--muted-text); font-size: 13px; }
 
 .info-list { display:flex; gap:8px; flex-wrap:wrap; }
@@ -345,7 +338,7 @@ body {
 .project-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
 }
 
@@ -361,10 +354,6 @@ body {
   white-space: nowrap;
   padding: 8px 14px;
   font-size: 13px;
-}
-
-.project-row {
-  padding-top: 6px;
 }
 
 .github {
@@ -386,4 +375,85 @@ body {
 
 .form {
   margin-top: 12px;
+}
+
+.github-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.github-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.repo-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  font-weight: 600;
+}
+
+.repo-name {
+  font-size: 15px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.github-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.project-block {
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-block,
+.github-card {
+  background: rgba(0,0,0,0.35);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.repo-name {
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.info-title {
+  opacity: 0.95;
+}
+
+.btn.primary {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    rgb(255, 215, 60)
+  );
+}
+
+.github-card,
+.project-block {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.github-card:hover,
+.project-block:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255,255,255,0.03),
+    0 6px 18px rgba(0,0,0,0.4);
 }

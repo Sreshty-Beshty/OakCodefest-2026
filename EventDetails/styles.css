@@ -1,9 +1,7 @@
-/* Shared section spacing */
 section {
     padding: 80px 0;
 }
 
-/* Title styling (used directly in your section) */
 .section-title {
     margin-top: 50px;
     font-size: 3em;
@@ -12,7 +10,6 @@ section {
     margin-bottom: 50px;
 }
 
-/* Text defaults affecting your note content */
 p {
     color: var(--text-color);
     margin-bottom: 1em;
@@ -28,7 +25,6 @@ h6 {
     margin-bottom: 0.5em;
 }
 
-/* Container behavior (if schedule-section sits inside one anywhere) */
 .container {
     margin: 0 auto;
     padding: 20px;
@@ -103,7 +99,6 @@ h6 {
     color: var(--text-color);
 }
 
-/* Header label */
 .note-header {
     display: inline-block;
     padding: 6px 14px;
@@ -128,7 +123,6 @@ h6 {
     color: var(--tert-accent-color);
 }
 
-/* Mobile */
 @media (max-width: 768px) {
     .event-note {
         margin-top: 32px;

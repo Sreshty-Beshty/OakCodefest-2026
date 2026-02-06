@@ -35,7 +35,7 @@ export const handler = async (event) => {
     if (feedbackError) throw feedbackError;
 
     let leaderboard = [];
-    let currentTeam = Number(team.category);
+    const currentTeam = Number(team.category);
 
     const { data, error } = await supabase
       .from("teams")

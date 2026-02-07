@@ -1,4 +1,4 @@
-const EVENT_END = new Date("2026-02-08T10:00:00");
+const EVENT_END = new Date("2026-02-08T09:15:00");
 const TEAM_ID = localStorage.getItem("username") || "T01";
 let currentTeam = null;
 

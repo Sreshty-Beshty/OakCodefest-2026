@@ -244,7 +244,6 @@ function renderLeaderboard(rows) {
     .map(r => ({
       team_id: r.team_id,
       team_name: r.team_name,
-      points: Number(r.points) || 0
     }))
     .sort((a, b) => b.points - a.points)
     .slice(0, 5);
@@ -253,7 +252,6 @@ function renderLeaderboard(rows) {
     <div class="leaderboard-row ${r.team_id === TEAM_ID ? "highlight" : ""}">
       <span>#${i + 1}</span>
       <span>${r.team_name}</span>
-      <span>${r.points}</span>
     </div>
   `).join("");
 }
